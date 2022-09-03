@@ -1,0 +1,15 @@
+{{template "layout.html" .}}
+
+{{define "title"}}Employee Form{{end}}
+
+{{define "content"}}
+<form class="account-form" method="post" action="/employee" data-controller="login">
+    <div div="account-form-title">Enter Employee Detail</div>
+    <input type="text" name="name" class="form-control" placeholder="Name" tabindex="1">
+    <input type="email" name="email" class="form-control" placeholder="Email Address" tabindex="1">
+    <input type="number" name="salary" class="form-control" placeholder="Salary" tabindex="1">
+    <div class="account-form-field-submit ">
+        <button type="submit" class="btn btn-phone">Submit</button>
+    </div>
+</form>
+{{end}}
