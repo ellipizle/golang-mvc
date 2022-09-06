@@ -18,7 +18,7 @@ func main() {
 	//initialize service
 	svc := service.New(repo)
 	//initialize controller
-	routes := controller.New(svc)
+	employeeController := controller.New(svc)
 	// initialize new echo
 	e := echo.New()
 	// e.Renderer = template.New()
@@ -29,11 +29,11 @@ func main() {
 	v1 := e.Group("/v1")
 	//create employee group route
 	employee := v1.Group("/employee")
-	employee.GET("", routes.GetAllEmployee)
-	employee.POST("", routes.AddEmployee)
-	employee.PUT("/:id", routes.UpdateEmployee)
-	employee.DELETE("/:id", routes.DeleteEmployee)
-	employee.GET("/:id", routes.GetEmployee)
+	employee.GET("", employeeController.GetAllEmployee)
+	employee.POST("", employeeController.AddEmployee)
+	employee.PUT("/:id", employeeController.UpdateEmployee)
+	employee.DELETE("/:id", employeeController.DeleteEmployee)
+	employee.GET("/:id", employeeController.GetEmployee)
 	//start server
 	e.Logger.Fatal(e.Start(":8080"))
 }
